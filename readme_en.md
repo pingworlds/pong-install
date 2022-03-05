@@ -4,6 +4,19 @@
 - [English](readme_en.md)
 
 
+## Client
+
+- socks5
+
+Browser and other software try connect to socks5 port
+
+- Android client
+
+   - ping
+
+ <https://github.com/pingworlds/ping>
+ 
+
 ## System services
 
 pong-go installation script
@@ -23,8 +36,8 @@ The shell script does the following.
 
 Try to start the service
 
-    $ sytemctl start pong
-    $ sytemctl stop pong
+    $ systemctl start pong
+    $ systemctl stop pong
 
 View the log
 

@@ -4,6 +4,20 @@
 - [中文](README.md)
 - [English](readme_en.md)
 
+## 客户端
+
+-  socks5
+
+浏览器等其它软件连接 socks5 端口
+
+-  安卓客户端
+
+   - ping
+
+ <https://github.com/pingworlds/ping>
+ 
+
+
 
 ## 系统服务
 
@@ -24,8 +38,8 @@ shell 脚本的工作内容：
 
 尝试启动服务
 
-    $ sytemctl start pong
-    $ sytemctl stop pong
+    $ systemctl start pong
+    $ systemctl stop pong
 
 查看运行日志
 
