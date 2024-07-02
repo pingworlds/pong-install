@@ -73,7 +73,7 @@ download_file() {
 	# echo "--------------pong.service :$app_service"
 	echo "--------------pong :$dl_url"
 
-	if ! ls "$app_path" >/dev/null 2>&1; then
+	if ! ls $app_path >/dev/null 2>&1; then
 		echo "--------------mk dir :$app_path"
 		mkdir $app_path
 	fi
@@ -84,13 +84,13 @@ download_file() {
 
 	chmod 700 /usr/local/pong/pong
 
-	if ! ls "/usr/local/${app_name}/${app_bin}" >/dev/null 2>&1; then
-		ln -s "/usr/local/${app_name}/${app_bin}" "/usr/bin/${app_bin}"
+	if ! ls /usr/local/${app_name}/${app_bin} >/dev/null 2>&1; then
+		ln -s /usr/local/${app_name}/${app_bin} /usr/bin/${app_bin}
 	fi
 }
 
 reg_service() {
-	if ! ls "/usr/lib/systemd/system/pong.service" >/dev/null 2>&1; then
+	if ! ls /usr/lib/systemd/system/pong.service >/dev/null 2>&1; then
 		echo "registering pong service"
 		cat <<EOT >>/usr/lib/systemd/system/pong.service
 [Unit]
@@ -111,7 +111,7 @@ WantedBy=multi-user.target
 EOT
 	fi
 
-	if ! ls "/usr/local/pong/remote.json" >/dev/null 2>&1; then
+	if ! ls /usr/local/pong/remote.json >/dev/null 2>&1; then
 		cat <<EOT >>/usr/local/pong/remote.json
 { 
     "listens": [           
@@ -171,8 +171,8 @@ EOT
 	sudo systemctl enable pong
 	systemctl daemon-reload
 
-	if ! ls "/etc/systemd/system/multi-user.target.wants/${app_service}" >/dev/null 2>&1; then
-		ln -s "/usr/lib/systemd/system/${app_service}" "/etc/systemd/system/multi-user.target.wants/${app_service}"
+	if ! ls /etc/systemd/system/multi-user.target.wants/${app_service} >/dev/null 2>&1; then
+		ln -s /usr/lib/systemd/system/${app_service} /etc/systemd/system/multi-user.target.wants/${app_service}
 	fi
 	echo "successfully registered pong service."
 }
