@@ -83,7 +83,7 @@ download_file() {
 	rm -rf ${app_file_name}${app_file_ext}
 
 	chmod 700 /usr/local/pong/pong 
-	ln -sfv /usr/local/pong/pong /usr/bin/pong    
+	ln -sf "/usr/local/pong/pong" "/usr/bin/pong"    
 	 
 }
 
