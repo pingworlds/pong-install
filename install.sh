@@ -84,7 +84,7 @@ download_file() {
 
 	chmod -R 700 /usr/local/${app_name}/
         if ! ls /usr/bin/${app_name} >/dev/null 2>&1; then
-	  ln -sf  /usr/local/${app_name}/${app_name} /usr/bin/${app_name}   
+	  ln -sf  /usr/local/${app_name} /usr/bin/${app_name}   
         fi
 	 
 }
