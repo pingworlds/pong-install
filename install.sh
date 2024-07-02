@@ -82,11 +82,8 @@ download_file() {
 	tar -zxf ${app_file_name}${app_file_ext} -C ${app_path}
 	rm -rf ${app_file_name}${app_file_ext}
 
-	chmod 700 /usr/local/pong/pong
-
- 
-	ln -s /usr/local/pong/pong /usr/bin/pong
-      
+	chmod 700 /usr/local/pong/pong 
+	ln -sfv /usr/local/pong/pong /usr/bin/pong    
 	 
 }
 
