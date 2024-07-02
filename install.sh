@@ -84,9 +84,9 @@ download_file() {
 
 	chmod 700 /usr/local/pong/pong
 
-	if ! ls /usr/local/${app_name}/${app_bin} >/dev/null 2>&1; then
-		ln -s /usr/local/${app_name}/${app_bin} /usr/bin/${app_bin}
-	fi
+	 
+	ln -s /usr/local/${app_name}/${app_bin} /usr/bin/${app_bin}
+	 
 }
 
 reg_service() {
