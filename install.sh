@@ -11,7 +11,8 @@ app_file_ext=".tar.gz"
 app_site="https://github.com/pingworlds"
 
 app_bin="$app_name"
-app_path="/usr/local/${app_name}"
+# app_path="/usr/local/${app_name}"
+app_path="/etc/${app_name}"
 app_source="${app_site}/${app_name}"
 
 app_source="${app_site}/pong"
@@ -80,11 +81,14 @@ download_file() {
 
 	curl -# -sL -O $dl_url
 	tar -zxf ${app_file_name}${app_file_ext} -C ${app_path}
+
+        mv  ${app_path}/${app_name}  /usr/bin
+	
 	rm -rf ${app_file_name}${app_file_ext}
 
-	chmod -R 700 /usr/local/${app_name}/
-        if ! ls /usr/bin/${app_name} >/dev/null 2>&1; then
-	  ln -sf  /usr/local/${app_name} /usr/bin/${app_name}   
+	 
+        if ! ls /etc/${app_name} >/dev/null 2>&1; then
+	  mkdir  /etc/${app_name}	 
         fi
 	 
 }
@@ -101,7 +105,7 @@ After=network.target network-online.target nss-lookup.target
 [Service]
 Type=simple
 StandardError=journal
-ExecStart=/usr/bin/pong -d /usr/local/pong
+ExecStart=/usr/bin/pong -d /etc/pong
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=3s
@@ -111,8 +115,8 @@ WantedBy=multi-user.target
 EOT
 	fi
 
-	if ! ls /usr/local/pong/remote.json >/dev/null 2>&1; then
-		cat <<EOT >>/usr/local/pong/remote.json
+	if ! ls /etc/pong/remote.json >/dev/null 2>&1; then
+		cat <<EOT >>/etc/pong/remote.json
 { 
     "listens": [           
         {
