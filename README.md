@@ -23,7 +23,7 @@
 
 pong-go installation script
 
-    curl -o- -L https://github.com/pingworlds/pong-install//releases/latest/download/install.sh | bash
+    curl -o- -L https://raw.githubusercontent.com/pingworlds/pong-install/main/install.sh  | bash
 
 
 shell 脚本的工作内容：
