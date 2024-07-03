@@ -25,6 +25,7 @@ pong-go installation script
 
     curl -o- -L https://raw.githubusercontent.com/pingworlds/pong-install/main/install.sh  | bash
 
+2024-07 脚本已更新。
 
 shell 脚本的工作内容：
 
