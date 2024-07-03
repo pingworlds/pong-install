@@ -83,7 +83,7 @@ download_file() {
 	tar -zxf ${app_file_name}${app_file_ext} -C ${app_path}
 
         mv  ${app_path}/${app_name}  /usr/bin
-	
+	chmod 700  /usr/bin/${app_name} 
 	rm -rf ${app_file_name}${app_file_ext}
 
 	 
